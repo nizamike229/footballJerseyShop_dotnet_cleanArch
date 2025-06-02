@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SneakerShop.Application.Services;
 using SneakerShop.Domain.Entities;
@@ -25,6 +26,7 @@ public class SneakerController : ControllerBase
         return Ok((await _sneakerService.GetAllSneakers()).ToSneakerResponseList());
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     [ActionName("create")]
     public async Task<ActionResult<string>> CreateSneaker([FromBody] SneakerRequest request)
@@ -32,6 +34,7 @@ public class SneakerController : ControllerBase
         return Ok(await _sneakerService.CreateSneaker(request.ToSneaker()));
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPatch]
     [ActionName("edit")]
     public async Task<ActionResult<string>> EditSneaker([FromBody] Sneaker request)
@@ -39,6 +42,7 @@ public class SneakerController : ControllerBase
         return Ok(await _sneakerService.EditSneaker(request));
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpDelete]
     [ActionName("delete")]
     public async Task<ActionResult<string>> DeleteSneaker([FromBody] string sneakerId)
