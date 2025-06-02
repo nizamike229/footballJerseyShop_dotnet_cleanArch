@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>SneakersShop</RootNamespace>
+        <UserSecretsId>c87ea3b1-6348-4c56-b1b6-10f84661a825</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
