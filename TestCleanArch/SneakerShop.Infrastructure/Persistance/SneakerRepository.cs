@@ -17,7 +17,7 @@ public class SneakerRepository : ISneakerRepository
 
     public async Task AddSneaker(Sneaker sneaker)
     {
-        var isExist = await _context.Sneakers.FirstOrDefaultAsync(s => s.Title == sneaker.Title) == null;
+        var isExist = await _context.Sneakers.AnyAsync(s => s.Title == sneaker.Title);
         if (isExist)
             throw new Exception("Sneaker with this title already exists");
 
