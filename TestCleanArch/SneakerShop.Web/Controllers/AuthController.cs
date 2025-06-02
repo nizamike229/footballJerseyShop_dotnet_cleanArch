@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SneakerShop.Application.Services;
 using SneakersShop.Mapping;
@@ -41,6 +42,7 @@ public class AuthController : ControllerBase
         return Ok(new { Message = await _authService.Register(request.ToUser()) });
     }
 
+    [Authorize]
     [HttpPost]
     [ActionName("logout")]
     public ActionResult<string> Logout()
