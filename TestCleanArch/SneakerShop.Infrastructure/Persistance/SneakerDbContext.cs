@@ -15,6 +15,7 @@ public partial class SneakerDbContext : DbContext
     }
 
     public virtual DbSet<Sneaker> Sneakers { get; set; }
+    public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlite("Data Source=../../main.sqlite");
@@ -35,6 +36,15 @@ public partial class SneakerDbContext : DbContext
                 .HasColumnName("title");
         });
 
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.ToTable("users");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Username).HasColumnName("username");
+            entity.Property(e => e.Password).HasColumnName("password_hash");
+            entity.Property(e => e.Role).HasColumnName("role");
+        });
         OnModelCreatingPartial(modelBuilder);
     }
 
