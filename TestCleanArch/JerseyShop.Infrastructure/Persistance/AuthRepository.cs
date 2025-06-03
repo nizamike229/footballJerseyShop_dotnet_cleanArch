@@ -8,9 +8,9 @@ namespace SneakerShop.Infrastructure.Persistance;
 public class AuthRepository : IAuthRepository
 {
     private readonly ITokenService _tokenService;
-    private readonly SneakerDbContext _context;
+    private readonly JerseyDbContext _context;
 
-    public AuthRepository(ITokenService tokenService, SneakerDbContext context)
+    public AuthRepository(ITokenService tokenService, JerseyDbContext context)
     {
         _tokenService = tokenService;
         _context = context;

@@ -6,9 +6,9 @@ namespace SneakerShop.Infrastructure.Persistance;
 
 public class JerseyRepository : IJerseyRepository
 {
-    private readonly SneakerDbContext _context;
+    private readonly JerseyDbContext _context;
 
-    public JerseyRepository(SneakerDbContext context)
+    public JerseyRepository(JerseyDbContext context)
     {
         _context = context;
     }

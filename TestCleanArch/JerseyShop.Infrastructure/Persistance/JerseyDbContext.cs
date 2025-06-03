@@ -3,13 +3,13 @@ using SneakerShop.Domain.Entities;
 
 namespace SneakerShop.Infrastructure.Persistance;
 
-public partial class SneakerDbContext : DbContext
+public partial class JerseyDbContext : DbContext
 {
-    public SneakerDbContext()
+    public JerseyDbContext()
     {
     }
 
-    public SneakerDbContext(DbContextOptions<SneakerDbContext> options)
+    public JerseyDbContext(DbContextOptions<JerseyDbContext> options)
         : base(options)
     {
     }

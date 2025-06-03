@@ -21,7 +21,7 @@ builder.Services.AddScoped<IJerseyService, JerseyService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddDbContext<SneakerDbContext>();
+builder.Services.AddDbContext<JerseyDbContext>();
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
