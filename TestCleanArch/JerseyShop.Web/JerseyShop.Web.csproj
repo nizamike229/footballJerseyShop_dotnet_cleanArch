@@ -14,8 +14,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SneakerShop.Application\SneakerShop.Application.csproj" />
-      <ProjectReference Include="..\SneakerShop.Infrastructure\SneakerShop.Infrastructure.csproj" />
+      <ProjectReference Include="..\JerseyShop.Application\JerseyShop.Application.csproj" />
+      <ProjectReference Include="..\JerseyShop.Infrastructure\JerseyShop.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

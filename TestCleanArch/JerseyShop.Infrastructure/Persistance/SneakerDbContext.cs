@@ -14,7 +14,7 @@ public partial class SneakerDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Sneaker> Sneakers { get; set; }
+    public virtual DbSet<Jersey> Jerseys { get; set; }
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -22,18 +22,18 @@ public partial class SneakerDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Sneaker>(entity =>
+        modelBuilder.Entity<Jersey>(entity =>
         {
-            entity.ToTable("sneakers");
+            entity.ToTable("jerseys");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.Price)
                 .HasColumnType("INT")
                 .HasColumnName("price");
-            entity.Property(e => e.Title)
+            entity.Property(e => e.Name)
                 .HasColumnType("text(255)")
-                .HasColumnName("title");
+                .HasColumnName("name");
         });
 
         modelBuilder.Entity<User>(entity =>

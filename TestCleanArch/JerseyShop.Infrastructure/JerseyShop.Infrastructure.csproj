@@ -4,6 +4,7 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>SneakerShop.Infrastructure</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,8 +19,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SneakerShop.Application\SneakerShop.Application.csproj" />
-      <ProjectReference Include="..\SneakerShop.Domain\SneakerShop.Domain.csproj" />
+      <ProjectReference Include="..\JerseyShop.Application\JerseyShop.Application.csproj" />
+      <ProjectReference Include="..\JerseyShop.Domain\JerseyShop.Domain.csproj" />
     </ItemGroup>
 
 </Project>

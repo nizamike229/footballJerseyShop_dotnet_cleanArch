@@ -2,12 +2,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SneakersShop.Models.Requests;
 
-public class SneakerRequest
+public class JerseyRequest
 {
     [MaxLength(255)]
-    [MinLength(8)]
+    [MinLength(3)]
     [RegularExpression(@"^(?!\s*$).+", ErrorMessage = "Поле не может состоять только из пробелов")]
-    public required string Title { get; set; }
+    public required string Name { get; set; }
 
     [MaxLength(500)]
     [MinLength(8)]

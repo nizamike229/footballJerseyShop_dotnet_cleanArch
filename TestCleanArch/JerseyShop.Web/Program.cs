@@ -16,8 +16,8 @@ if (builder.Environment.IsDevelopment())
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<ISneakerRepository, SneakerRepository>();
-builder.Services.AddScoped<ISneakerService, SneakerService>();
+builder.Services.AddScoped<IJerseyRepository, JerseyRepository>();
+builder.Services.AddScoped<IJerseyService, JerseyService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();

@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SneakerShop.Web", "SneakerShop.Web\SneakerShop.Web.csproj", "{0F569562-6501-41D5-94D9-9CC7E5EB8B20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerseyShop.Web", "JerseyShop.Web\JerseyShop.Web.csproj", "{0F569562-6501-41D5-94D9-9CC7E5EB8B20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SneakerShop.Infrastructure", "SneakerShop.Infrastructure\SneakerShop.Infrastructure.csproj", "{60F8BCFB-A526-4A60-812F-46F74F2ACB3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerseyShop.Infrastructure", "JerseyShop.Infrastructure\JerseyShop.Infrastructure.csproj", "{60F8BCFB-A526-4A60-812F-46F74F2ACB3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SneakerShop.Application", "SneakerShop.Application\SneakerShop.Application.csproj", "{43E3DF80-3F74-464B-97CB-C2F3E5382CAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerseyShop.Application", "JerseyShop.Application\JerseyShop.Application.csproj", "{43E3DF80-3F74-464B-97CB-C2F3E5382CAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SneakerShop.Domain", "SneakerShop.Domain\SneakerShop.Domain.csproj", "{0A5369B9-3F19-4B16-A361-CCEEDE336C3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerseyShop.Domain", "JerseyShop.Domain\JerseyShop.Domain.csproj", "{0A5369B9-3F19-4B16-A361-CCEEDE336C3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
