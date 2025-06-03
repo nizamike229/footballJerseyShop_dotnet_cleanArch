@@ -28,7 +28,7 @@ JerseyShop — это учебный проект интернет-магази�
 3. Проверьте строку подключения к базе данных в `SneakerShop.Infrastructure/Persistance/SneakerDbContext.cs` (по умолчанию используется SQLite-файл `main.sqlite`).
 4. Запустите проект:
    ```sh
-   dotnet run --project SneakerShop.Web/SneakerShop.Web.csproj
+   dotnet run --project JerseyShop.Web/JerseyShop.Web.csproj
    ```
 5. Откройте Swagger UI по адресу: [https://localhost:7235/swagger](https://localhost:7235/swagger) (или порт из launchSettings.json).
 
