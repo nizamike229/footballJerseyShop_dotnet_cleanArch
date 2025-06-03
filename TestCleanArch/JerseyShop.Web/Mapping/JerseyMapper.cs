@@ -10,10 +10,12 @@ public static class JerseyMapper
     {
         return new Jersey
         {
-            Id = Guid.NewGuid().ToString(),
+            Id = Guid.NewGuid()
+                .ToString(),
             Name = jerseyRequest.Name,
             Description = jerseyRequest.Description,
             Price = jerseyRequest.Price,
+            ClubId = jerseyRequest.ClubId
         };
     }
 

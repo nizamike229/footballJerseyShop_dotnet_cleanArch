@@ -15,4 +15,5 @@ public class JerseyRequest
     public required string Description { get; set; }
 
     public required int Price { get; set; }
+    public required string ClubId { get; set; }
 }

@@ -20,10 +20,10 @@ public class AuthService : IAuthService
 
     public Task<string> Register(User user)
     {
-        if (string.IsNullOrWhiteSpace(user.Username) || string.IsNullOrWhiteSpace(user.Password))
+        if (string.IsNullOrWhiteSpace(user.Username) || string.IsNullOrWhiteSpace(user.PasswordHash))
             throw new Exception("Username and/or password are required");
 
-        if (user.Password.Length < 8 || user.Password.Length > 30)
+        if (user.PasswordHash.Length < 8 || user.PasswordHash.Length > 30)
             throw new Exception("Password must be between 8 and 30 characters");
 
         if (user.Username.Length < 8 || user.Username.Length > 30)

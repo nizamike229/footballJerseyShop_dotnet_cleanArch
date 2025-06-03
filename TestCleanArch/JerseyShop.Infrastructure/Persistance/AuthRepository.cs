@@ -22,7 +22,7 @@ public class AuthRepository : IAuthRepository
         if (isUsernameFree)
             throw new Exception("Username is already taken");
 
-        user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
         return "User successfully registered";
@@ -35,7 +35,7 @@ public class AuthRepository : IAuthRepository
             throw new Exception("User not found!");
         var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == request.Username);
 
-        var isPasswordCorrect = BCrypt.Net.BCrypt.Verify(request.Password, user!.Password);
+        var isPasswordCorrect = BCrypt.Net.BCrypt.Verify(request.PasswordHash, user!.PasswordHash);
         if (!isPasswordCorrect)
             throw new Exception("Invalid password!");
 
