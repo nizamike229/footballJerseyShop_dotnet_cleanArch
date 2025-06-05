@@ -30,7 +30,7 @@ JerseyShop — это учебный проект интернет-магази�
    ```sh
    dotnet run --project JerseyShop.Web/JerseyShop.Web.csproj
    ```
-5. Откройте Swagger UI по адресу: [https://localhost:7235/swagger](https://localhost:7235/swagger) (или порт из launchSettings.json).
+5. Откройте Swagger UI по адресу: [http://localhost:5147/swagger](http://localhost:5147/swagger) (или порт из launchSettings.json).
 
 ## Основные возможности
 
