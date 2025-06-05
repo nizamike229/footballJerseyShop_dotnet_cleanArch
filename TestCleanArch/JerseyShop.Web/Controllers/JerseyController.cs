@@ -4,7 +4,6 @@ using SneakerShop.Application.Services;
 using SneakerShop.Domain.Entities;
 using SneakersShop.Mapping;
 using SneakersShop.Models.Requests;
-using SneakersShop.Models.Responses;
 
 namespace SneakersShop.Controllers;
 
@@ -21,9 +20,9 @@ public class JerseyController : ControllerBase
 
     [HttpGet]
     [ActionName("all")]
-    public async Task<ActionResult<List<JerseyResponse>>> GetJerseys()
+    public async Task<ActionResult<List<Jersey>>> GetJerseys()
     {
-        return Ok((await _jerseyService.GetAllJerseys()).ToJerseyResponseList());
+        return Ok(await _jerseyService.GetAllJerseys());
     }
 
     [Authorize(Roles = "Admin")]
@@ -31,7 +30,7 @@ public class JerseyController : ControllerBase
     [ActionName("create")]
     public async Task<ActionResult<string>> CreateJersey([FromBody] JerseyRequest request)
     {
-        return Ok(await _jerseyService.CreateJersey(request.ToJersey()));
+        return Ok(await _jerseyService.CreateJersey(await request.ToJersey()));
     }
 
     [Authorize(Roles = "Admin")]
