@@ -13,7 +13,27 @@ public class JerseyRepository : IJerseyRepository
         _context = context;
     }
 
-    public async Task<List<Jersey>> GetAllJerseys() => await _context.Jerseys.AsNoTracking().ToListAsync();
+    public async Task<List<Jersey>> GetAllJerseys()
+    {
+        var jerseys = await _context.Jerseys.AsNoTracking().ToListAsync();
+        foreach (var jersey in jerseys)
+        {
+            byte[] imageBytes = await File.ReadAllBytesAsync(jersey.Image);
+            string base64String = Convert.ToBase64String(imageBytes);
+            var fileExtension = Path.GetExtension(jersey.Image).ToLower().TrimStart('.');
+            var mimeType = fileExtension switch
+            {
+                "jpg" or "jpeg" => "image/jpeg",
+                "png" => "image/png",
+                "gif" => "image/gif",
+                "bmp" => "image/bmp",
+                _ => "image/jpeg"
+            };
+            jersey.Image = $"data:{mimeType};base64,{base64String}";
+        }
+
+        return jerseys;
+    }
 
     public async Task AddJersey(Jersey jersey)
     {
