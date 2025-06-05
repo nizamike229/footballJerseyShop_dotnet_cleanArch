@@ -1,12 +1,11 @@
 using SneakerShop.Domain.Entities;
 using SneakersShop.Models.Requests;
-using SneakersShop.Models.Responses;
 
 namespace SneakersShop.Mapping;
 
 public static class JerseyMapper
 {
-    public static Jersey ToJersey(this JerseyRequest jerseyRequest)
+    public static async Task<Jersey> ToJersey(this JerseyRequest jerseyRequest)
     {
         return new Jersey
         {
@@ -15,22 +14,46 @@ public static class JerseyMapper
             Name = jerseyRequest.Name,
             Description = jerseyRequest.Description,
             Price = jerseyRequest.Price,
-            ClubId = jerseyRequest.ClubId
+            ClubName = jerseyRequest.ClubName,
+            Image = await SaveImageAsync(jerseyRequest.Image)
         };
     }
 
-    public static JerseyResponse ToJerseyResponse(this Jersey jersey)
+    private static async Task<string> SaveImageAsync(string imageBase64)
     {
-        return new JerseyResponse
+        if (string.IsNullOrWhiteSpace(imageBase64))
         {
-            Name = jersey.Name,
-            Description = jersey.Description,
-            Price = jersey.Price,
-        };
+            return null!;
+        }
+
+        var base64Data = imageBase64.Split(',')[^1];
+        var imageBytes = Convert.FromBase64String(base64Data);
+
+        var fileExtension = GetFileExtension(imageBase64);
+        var fileName = $"{Guid.NewGuid()}.{fileExtension}";
+        var imagesPath = Path.Combine("./Images");
+        var filePath = Path.Combine(imagesPath, fileName);
+
+        if (!Directory.Exists(imagesPath))
+        {
+            Directory.CreateDirectory(imagesPath);
+        }
+
+        await File.WriteAllBytesAsync(filePath, imageBytes);
+        return Path.Combine("./Images/", fileName);
     }
 
-    public static List<JerseyResponse> ToJerseyResponseList(this List<Jersey> jerseys)
+    private static string GetFileExtension(string base64String)
     {
-        return jerseys.Select(jersey => jersey.ToJerseyResponse()).ToList();
+        var data = base64String.Split(',')[0];
+
+        return data switch
+        {
+            not null when data.Contains("jpeg") => "jpg",
+            not null when data.Contains("png") => "png",
+            not null when data.Contains("gif") => "gif",
+            not null when data.Contains("bmp") => "bmp",
+            _ => "jpg"
+        };
     }
 }
