@@ -14,8 +14,6 @@ public partial class JerseyDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Club> Clubs { get; set; }
-
     public virtual DbSet<Jersey> Jerseys { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
@@ -26,14 +24,6 @@ public partial class JerseyDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Club>(entity =>
-        {
-            entity.ToTable("clubs");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Name).HasColumnName("name");
-        });
-
         modelBuilder.Entity<Jersey>(entity =>
         {
             entity.ToTable("jerseys");
@@ -41,18 +31,15 @@ public partial class JerseyDbContext : DbContext
             entity.HasIndex(e => e.Name, "IX_jerseys_name").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.ClubId)
-                .HasColumnType("string")
-                .HasColumnName("club_id");
+            entity.Property(e=>e.ClubName).HasColumnName("club_name");
             entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e=>e.Image).HasColumnName("image_path");
             entity.Property(e => e.Name)
                 .HasColumnType("text(255)")
                 .HasColumnName("name");
             entity.Property(e => e.Price)
                 .HasColumnType("INT")
                 .HasColumnName("price");
-
-            entity.HasOne(d => d.Club).WithMany(p => p.Jerseys).HasForeignKey(d => d.ClubId);
         });
 
         modelBuilder.Entity<User>(entity =>
