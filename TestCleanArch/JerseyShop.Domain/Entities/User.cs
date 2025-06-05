@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SneakerShop.Domain.Entities;
 
-public partial class User
+public class User
 {
     public string Username { get; set; } = null!;
 

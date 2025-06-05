@@ -1,5 +1,4 @@
-﻿
-namespace SneakerShop.Domain.Entities;
+﻿namespace SneakerShop.Domain.Entities;
 
 public class Jersey
 {
@@ -10,8 +9,7 @@ public class Jersey
     public required string Description { get; set; }
 
     public required int Price { get; set; }
-
-    public required string ClubId { get; set; }
-
-    public virtual Club? Club { get; set; }
+    
+    public required string ClubName { get; set; }
+    public string Image { get; set; }
 }
