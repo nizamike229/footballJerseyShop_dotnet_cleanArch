@@ -14,6 +14,15 @@ public class JerseyRequest
     [RegularExpression(@"^(?!\s*$).+", ErrorMessage = "Поле не может состоять только из пробелов")]
     public required string Description { get; set; }
 
+    [Required]
     public required int Price { get; set; }
-    public required string ClubId { get; set; }
+    
+    [MaxLength(255)]
+    [MinLength(1)]
+    [RegularExpression(@"^(?!\s*$).+", ErrorMessage = "Поле не может состоять только из пробелов")]
+    public required string ClubName { get; set; }
+
+    [MinLength(10)]
+    [RegularExpression(@"^(?!\s*$).+", ErrorMessage = "Поле не может состоять только из пробелов")]
+    public required string Image { get; set; }
 }
